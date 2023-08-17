@@ -1,4 +1,4 @@
-package com.mysql.demo.api.users.controller;
+package com.mysql.demo.api.common;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Data
-class GenericResponseError implements Serializable {
+public class GenericResponseError implements Serializable {
     private Timestamp timestamp;
     private int status;
     private String error;
