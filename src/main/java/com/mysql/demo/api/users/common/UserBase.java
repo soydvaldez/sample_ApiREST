@@ -3,7 +3,7 @@ package com.mysql.demo.api.users.common;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
-
+//Clase base para aplicar el patron adapter o pasar entre capas el objeto de negocio
 public class UserBase {
     public String username;
     public String email;

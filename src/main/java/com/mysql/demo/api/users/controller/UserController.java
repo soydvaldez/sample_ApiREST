@@ -1,5 +1,7 @@
 package com.mysql.demo.api.users.controller;
 
+import com.mysql.demo.api.common.GenericResponse;
+import com.mysql.demo.api.common.GenericResponseError;
 import com.mysql.demo.api.users.repository.User;
 import com.mysql.demo.api.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,9 +79,17 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody ResponseEntity<?> getAllUsers() {
         // This returns a JSON or XML with the users
-        return userService.getAll();
+        GenericResponse<User> response = new GenericResponse<User>();
+        Iterable<User> users = userService.getAll();
+
+        response.setTimestamp(new Timestamp(System.currentTimeMillis()));
+        response.setStatus(200);
+        response.setMessage("Request: OK");
+        response.setPath("/users/all");
+        response.setResult(users);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
