@@ -1,4 +1,4 @@
-package com.mysql.demo.controller;
+package com.mysql.demo.api.users.controller;
 
 import lombok.Data;
 import java.io.Serializable;

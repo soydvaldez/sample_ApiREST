@@ -1,4 +1,4 @@
-package com.mysql.demo.repository;
+package com.mysql.demo.api.users.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
