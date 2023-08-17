@@ -1,2 +1,4 @@
-package com.mysql.demo.api.products.repository;public class ProductService {
+package com.mysql.demo.api.products.repository;
+
+public class ProductService {
 }
