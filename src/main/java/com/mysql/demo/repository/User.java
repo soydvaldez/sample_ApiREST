@@ -1,4 +1,4 @@
-package com.mysql.demo;
+package com.mysql.demo.repository;
 
 import jakarta.persistence.*;
 
