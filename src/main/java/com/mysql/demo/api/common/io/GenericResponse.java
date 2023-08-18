@@ -1,4 +1,4 @@
-package com.mysql.demo.api.common;
+package com.mysql.demo.api.common.io;
 
 import com.mysql.demo.api.products.repository.Product;
 import lombok.Data;

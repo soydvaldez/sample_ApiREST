@@ -1,7 +1,8 @@
 package com.mysql.demo.api.users.controller;
 
-import com.mysql.demo.api.common.GenericResponse;
-import com.mysql.demo.api.common.GenericResponseError;
+import com.mysql.demo.api.common.io.GenericResponse;
+import com.mysql.demo.api.common.io.GenericResponseError;
+import com.mysql.demo.api.common.utils.Utils;
 import com.mysql.demo.api.users.repository.User;
 import com.mysql.demo.api.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class UserController {
         }
 
         //Verify input data form
-        if (!isMatchAEmail(inputUser.getEmail())) {
+        if (!Utils.isMatchAEmail(inputUser.getEmail())) {
             GenericResponseError response = new GenericResponseError();
             response.setTimestamp(new Timestamp(System.currentTimeMillis()));
             response.setStatus(400);
@@ -99,10 +100,5 @@ public class UserController {
         Response response = new Response();
         response.setMessage("Hola mundo");
         return new ResponseEntity<Response>(response, HttpStatus.ACCEPTED);
-    }
-
-    public boolean isMatchAEmail(String email) {
-        String regexPattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-        return Pattern.matches(regexPattern, email);
     }
 }
