@@ -20,7 +20,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/all")
     public @ResponseBody ResponseEntity<?> getAll() {
         Iterable<Product> products = productService.getAll();

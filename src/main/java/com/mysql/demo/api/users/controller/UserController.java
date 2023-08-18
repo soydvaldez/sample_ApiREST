@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(path = "/add", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addNewUser(@RequestBody Request request) {
         UserRequest inputUser = request.getUser();
@@ -77,7 +77,7 @@ public class UserController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/all")
     public @ResponseBody ResponseEntity<?> getAllUsers() {
         // This returns a JSON or XML with the users
@@ -92,7 +92,7 @@ public class UserController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/resource", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getGretting() {
         // This returns a JSON or XML with the users
