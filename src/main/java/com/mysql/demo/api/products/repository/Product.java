@@ -12,8 +12,15 @@ public class Product {
     private String nombre;
     @Column(name = "precio")
     private double precio;
+    @Column(name = "stock")
+    private String stock;
+    @Column(name = "descripcion")
+    private String descripcion;
     @Column(name = "categoria")
     private String categoria;
+
+    @Column(name = "tipo")
+    private String tipo;
 
     public Long getId() {
         return id;
@@ -39,11 +46,35 @@ public class Product {
         this.precio = precio;
     }
 
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public String getCategoria() {
         return categoria;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

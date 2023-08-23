@@ -11,27 +11,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootApplication
 public class RepositoryApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RepositoryApplication.class, args);
-		RepositoryApplication.encoder();
-	}
-	static void encoder(){
+    public static void main(String[] args) {
+        SpringApplication.run(RepositoryApplication.class, args);
+        RepositoryApplication.encoder();
+    }
+
+    static void encoder() {
 		/*
 		System.out.println("encoding text");
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(4);
 		String result = encoder.encode("myPassword");
 		assertTrue(encoder.matches("myPassword", result));
 		System.out.println("encoded text");*/
-	}
+    }
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/users/*").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/products/*").allowedOrigins("http://localhost:4200");
-			}
-		};
-	}
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/users/*").allowedOrigins("http://localhost:4200", "http://127.0.0.1:5500");
+                registry.addMapping("/products/*").allowedOrigins("http://localhost:4200", "http://127.0.0.1:5500");
+                registry.addMapping("/orders/*").allowedOrigins("http://localhost:4200", "http://127.0.0.1:5500");
+            }
+        };
+    }
 }
